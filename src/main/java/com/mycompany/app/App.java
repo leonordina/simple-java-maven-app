@@ -1,10 +1,8 @@
 package com.mycompany.app;
 
-/**
- * Hello world!
- */
-public class App
-{
+import java.time.LocalTime;
+
+public class App {
 
     private final String message = "Hello World!";
 
@@ -18,4 +16,18 @@ public class App
         return message;
     }
 
+    public String getGreeting(String fullName) {
+        return "Hello " + fullName + "!";
+    }
+
+    public String getGreetingOnTime(String fullName) {
+        String morningGreet = "morning ";
+        String nightGreet = "night ";
+
+        if (LocalTime.now().isBefore(LocalTime.NOON)) {
+            return "Good " + morningGreet + fullName;
+        } else {
+            return "Good" + nightGreet + fullName;
+        }
+    }
 }
